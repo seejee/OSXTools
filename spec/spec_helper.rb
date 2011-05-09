@@ -1,8 +1,8 @@
 require 'bundler/setup'
 
-require 'osx_volume_manager'
+require 'osx_tools'
 
 RSpec.configure do |c|
-  include OsxVolumeManager
+  include OsxTools
 end
 
