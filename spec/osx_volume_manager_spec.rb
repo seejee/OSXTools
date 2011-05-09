@@ -4,7 +4,9 @@ require 'rspec'
 describe 'osx volume' do
 
   it 'should new one up' do
-    OSXVolumeManager::OSXVolume.new
+    @thing = OSXVolumeManager::OSXVolume.new
+    @thing.goo
+
   end
 
 end
