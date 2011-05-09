@@ -1,3 +1,8 @@
+PATH
+  remote: .
+  specs:
+    osx_volume_manager (0.0.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -15,4 +20,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rspec
+  osx_volume_manager!
+  rspec (~> 2.5.0)

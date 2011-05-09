@@ -1,4 +1,4 @@
-source 'http://rubygems.org' 
-group :testing do
-	gem 'rspec' 
-end
+source "http://rubygems.org"
+
+# Specify your gem's dependencies in osx_volume_manager.gemspec
+gemspec
