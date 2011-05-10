@@ -16,7 +16,7 @@ describe DiskutilInvoker do
   context "when executing a command" do
 
     it 'should invoke the command line' do
-      IO.should_receive(:popen).with(['diskutil', 'list', '-plist']).and_return(@mock_io)
+      IO.should_receive(:popen).with(['diskutil', 'list', '-plist'])
 
       @invoker.list
     end
