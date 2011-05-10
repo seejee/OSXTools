@@ -1,9 +1,16 @@
 require 'spec_helper'
 
-describe "retrieving a list of volumes" do
+describe VolumeManager do
 
-  it 'should invoke disktutil list' do
-       1.should == 0
+  before(:all) do
+    @manager = VolumeManager.new
   end
 
+  context "when retrieving a list of volumes" do
+
+    it 'should invoke diskutil list' do
+      IO.should_receive(:popen).with(['diskutil', 'list'])
+      @manager.volumes
+    end
+  end
 end
