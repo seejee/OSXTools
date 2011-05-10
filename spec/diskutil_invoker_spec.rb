@@ -5,7 +5,10 @@ describe DiskutilInvoker do
   before(:each) do
     @mock_io = mock "io"
     @mock_io.stub!(:close)
-    @mock_io.stub!(:readlines).and_return(['a'])
+    @mock_io.stub!(:readlines).and_return(['a', 'b'])
+
+    IO.stub!(:popen).and_return(@mock_io)
+    Plist.stub!(:parse_xml).and_return({"key" => "val"})
 
     @invoker = DiskutilInvoker.new
   end
@@ -15,12 +18,17 @@ describe DiskutilInvoker do
     it 'should invoke the command line' do
       IO.should_receive(:popen).with(['diskutil', 'list', '-plist']).and_return(@mock_io)
 
-      plist_content = ['plist', 'xml']
-      @mock_io.should_receive(:readlines).and_return(plist_content)
+      @invoker.list
+    end
 
-      Plist.should_receive(:parse_xml).with('plist xml').and_return({"key" => ['val1', 'val2']})
+    it 'should join the plist lines output by diskutil' do
+      Plist.should_receive(:parse_xml).with('a b')
 
       @invoker.list
+    end
+
+    it 'should return the parsed plist hash' do
+      @invoker.list.should == {"key" => "val"}
      end
   end
 end

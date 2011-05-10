@@ -20,6 +20,7 @@ describe VolumeManager do
 
       @manager.volumes.length.should == 3
       @manager.volumes.first.should == 'disk0'
+      @manager.volumes.last.should == 'disk2'
     end
   end
 end
