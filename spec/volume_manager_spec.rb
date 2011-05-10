@@ -27,7 +27,7 @@ describe VolumeManager do
       plist_content = ['plist', 'xml']
       @mock_io.should_receive(:readlines).and_return(plist_content)
 
-      Plist.should_receive(:parse_xml).with('plist xml').and_return({AllDisks: ['disk0', 'disk1', 'disk2']})
+      Plist.should_receive(:parse_xml).with('plist xml').and_return({"AllDisks" => ['disk0', 'disk1', 'disk2']})
 
       @manager.volumes
      end
@@ -38,7 +38,7 @@ describe VolumeManager do
       plist_content = ['plist', 'xml']
       @mock_io.should_receive(:readlines).and_return(plist_content)
 
-      Plist.should_receive(:parse_xml).with('plist xml').and_return({AllDisks: ['disk0', 'disk1', 'disk2']})
+      Plist.should_receive(:parse_xml).with('plist xml').and_return({"AllDisks" => ['disk0', 'disk1', 'disk2']})
 
       @manager.volumes
     end
@@ -49,7 +49,7 @@ describe VolumeManager do
       plist_content = ['plist', 'xml']
       @mock_io.should_receive(:readlines).and_return(plist_content)
 
-      Plist.should_receive(:parse_xml).with('plist xml').and_return({AllDisks: ['disk0', 'disk1', 'disk2']})
+      Plist.should_receive(:parse_xml).with('plist xml').and_return({"AllDisks" => ['disk0', 'disk1', 'disk2']})
 
       @manager.volumes.length.should == 3
     end

@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="466bfbf1-a387-4c2f-8b1b-577f02b3a26e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/osx_tools.rb" afterPath="$PROJECT_DIR$/lib/osx_tools.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/osx_tools/volume_manager.rb" afterPath="$PROJECT_DIR$/lib/osx_tools/volume_manager.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/osx_tools.gemspec" afterPath="$PROJECT_DIR$/osx_tools.gemspec" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/spec_helper.rb" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/volume_manager_spec.rb" afterPath="$PROJECT_DIR$/spec/volume_manager_spec.rb" />
     </list>
     <ignored path="s7-e1.iws" />
@@ -80,7 +76,7 @@
       <file leaf-file-name="volume_manager_spec.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec/volume_manager_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="6" selection-start="684" selection-end="684" vertical-scroll-proportion="0.3618421">
+            <state line="40" column="82" selection-start="1009" selection-end="1009" vertical-scroll-proportion="0.34736842">
               <folding />
             </state>
           </provider>
@@ -89,7 +85,7 @@
       <file leaf-file-name="volume_manager.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/osx_tools/volume_manager.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="20" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0">
+            <state line="11" column="21" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -440,14 +436,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/osx_tools/volume_manager.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="20" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0">
+        <state line="11" column="21" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/volume_manager_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="6" selection-start="684" selection-end="684" vertical-scroll-proportion="0.3618421">
+        <state line="40" column="82" selection-start="1009" selection-end="1009" vertical-scroll-proportion="0.34736842">
           <folding />
         </state>
       </provider>

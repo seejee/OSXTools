@@ -9,8 +9,7 @@ module OsxTools
       output.close
 
       hash = Plist::parse_xml(lines.join(' '))
-      p hash
-      hash[:AllDisks]
+      hash["AllDisks"]
     end
   end
 
