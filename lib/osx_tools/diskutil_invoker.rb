@@ -3,18 +3,21 @@ require 'Plist'
 module OsxTools
   class DiskutilInvoker
     def list
-      invoke_and_parse('list')
+      get_hash_from_command('list')
     end
 
     private
 
-    def invoke_and_parse(command)
+    def get_hash_from_command(command)
+      plist_xml = get_plist_from_command(command)
+      Plist::parse_xml(plist_xml)
+    end
+
+    def get_plist_from_command(command)
       output = IO.popen(['diskutil', command, '-plist'])
       lines = output.readlines
       output.close
-
-      plist_xml = lines.join(' ')
-      Plist::parse_xml(plist_xml)
+      lines.join(' ')
     end
   end
 end
