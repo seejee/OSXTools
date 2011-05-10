@@ -1,16 +1,13 @@
-require 'Plist'
-
 module OsxTools
   class VolumeManager
 
-    def volumes
-      output = IO.popen(['diskutil', 'list', '-plist'])
-      lines = output.readlines
-      output.close
+    def initialize(invoker)
+      @diskutil = invoker || DiskutilInvoker.new
+    end
 
-      hash = Plist::parse_xml(lines.join(' '))
+    def volumes
+      hash = @diskutil.list
       hash["AllDisks"]
     end
   end
-
 end
