@@ -1,8 +1,8 @@
 module OsxTools
   class VolumeManager
 
-    def initialize(invoker)
-      @diskutil = invoker || DiskutilInvoker.new
+    def initialize(invoker = DiskutilInvoker.new)
+      @diskutil = invoker
     end
 
     def volumes

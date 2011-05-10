@@ -10,7 +10,7 @@ module OsxTools
 
     def get_hash_from_command(command)
       plist_xml = get_plist_from_command(command)
-      Plist::parse_xml(plist_xml)
+      Plist.parse_xml(plist_xml)
     end
 
     def get_plist_from_command(command)
