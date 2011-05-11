@@ -10,7 +10,7 @@ This gem provides a mechanism to manipulate OSX dis volumes via Ruby. It contain
 
 The following code finds the first USB flash drive and ejects it.
 
-    volumes = VolumeManager.new.list
+    volumes = VolumeManager.new.volumes
     usb_drive = volumes.find {|v| v.bus_protocol == 'USB'}
     usb_drive.eject
 
