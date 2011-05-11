@@ -15,6 +15,10 @@ module OsxTools
       command('eject', id)
     end
 
+    def unmount(id)
+      command('unmount', id)
+    end
+
     private
 
     def query(verb, id=nil)

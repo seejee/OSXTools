@@ -18,6 +18,17 @@ describe Volume do
 
   end
 
+  context "when unmounting a volume" do
+
+    it 'should call unmount on the diskutil invoker' do
+      @invoker.should_receive(:unmount).with('disk0')
+
+      @volume.unmount
+      @volume.is_mounted.should == false
+    end
+
+  end
+
   context "when inspecting a volume" do
 
     it "should expose the volume's id" do

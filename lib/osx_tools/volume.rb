@@ -1,11 +1,12 @@
 module OsxTools
   class Volume
 
-    attr_reader :id, :is_ejected
+    attr_reader :id, :is_ejected, :is_mounted
 
     def initialize(id, invoker)
       @id = id
       @diskutil = invoker
+      @is_mounted = true
     end
 
     def node
@@ -39,6 +40,11 @@ module OsxTools
     def eject
       @diskutil.eject(@id)
       @is_ejected = true
+    end
+
+    def unmount
+      @diskutil.unmount(@id)
+      @is_mounted = false
     end
 
     private

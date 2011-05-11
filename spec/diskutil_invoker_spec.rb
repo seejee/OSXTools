@@ -51,4 +51,14 @@ describe DiskutilInvoker do
     end
 
   end
+
+  context "when executing the unmount command" do
+
+    it 'should call: diskutil unmount {id}' do
+      @invoker.should_receive(:system).with(['diskutil', 'unmount', 'id'])
+
+      @invoker.unmount('id')
+    end
+
+  end
 end
