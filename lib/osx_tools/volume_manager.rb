@@ -6,8 +6,10 @@ module OsxTools
     end
 
     def volumes
-      hash = @diskutil.list
-      hash["AllDisks"]
+      volume_ids = @diskutil.list["AllDisks"]
+      volume_ids.inject([]) {|volumes, id| volumes << Volume.new(id, @diskutil)}
     end
   end
+
+
 end

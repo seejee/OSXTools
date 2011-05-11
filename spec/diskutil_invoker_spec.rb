@@ -13,9 +13,9 @@ describe DiskutilInvoker do
     @invoker = DiskutilInvoker.new
   end
 
-  context "when executing a command" do
+  context "when executing the list command" do
 
-    it 'should invoke the command line' do
+    it 'should call: diskutil list -plist' do
       IO.should_receive(:popen).with(['diskutil', 'list', '-plist'])
 
       @invoker.list
@@ -30,5 +30,15 @@ describe DiskutilInvoker do
     it 'should return the parsed plist hash' do
       @invoker.list.should == {"key" => "val"}
      end
+  end
+
+  context "when executing the info command" do
+
+    it 'should call: diskutil info -plist {id}' do
+      IO.should_receive(:popen).with(['diskutil', 'info', '-plist', 'id'])
+
+      @invoker.info('id')
+    end
+
   end
 end
