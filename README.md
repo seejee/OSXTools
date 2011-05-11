@@ -8,10 +8,10 @@ This gem provides a mechanism to manipulate OSX dis volumes via Ruby. It contain
 
 ## Example
 
-The following code finds a USB flash drive (the only drive formatted with FAT) and ejects it.
+The following code finds the first USB flash drive and ejects it.
 
     volumes = VolumeManager.new.list
-    usb_drive = volumes.find {|v| v.bus_protocol == 'usb'}
+    usb_drive = volumes.find {|v| v.bus_protocol == 'USB'}
     usb_drive.eject
 
 ## Technical notes
