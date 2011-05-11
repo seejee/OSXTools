@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-rvm use ruby-1.9.2-p180@osx_volume_manager
