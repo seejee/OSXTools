@@ -70,6 +70,12 @@ describe Volume do
       @volume.filesystem.should == 'filesystem'
     end
 
+    it 'should retrieve bus_protocol via the diskutil invoker' do
+      @invoker.should_receive(:info).with('disk0').and_return({"BusProtocol" => 'USB'})
+
+      @volume.bus_protocol.should == 'USB'
+    end
+
     it 'should retrieve total_size via the diskutil invoker' do
       @invoker.should_receive(:info).with('disk0').and_return({"TotalSize" => 1_000_000})
 

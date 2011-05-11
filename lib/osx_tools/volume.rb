@@ -21,6 +21,10 @@ module OsxTools
       info_hash["FilesystemUserVisibleName"]
     end
 
+    def bus_protocol
+      info_hash["BusProtocol"]
+    end
+
     def total_size
       info_hash["TotalSize"]
     end
