@@ -46,10 +46,6 @@ describe Volume do
       @volume.id.should == 'disk0'
     end
 
-    it "should expose the volume's id" do
-      @volume.id.should == 'disk0'
-    end
-
     it 'should retrieve node via the diskutil invoker' do
       @invoker.should_receive(:info).with('disk0').and_return({"DeviceNode" => '/dev/disk0s1'})
 
