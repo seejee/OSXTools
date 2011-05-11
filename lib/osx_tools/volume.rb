@@ -1,7 +1,7 @@
 module OsxTools
   class Volume
 
-    attr_reader :id
+    attr_reader :id, :is_ejected
 
     def initialize(id, invoker)
       @id = id
@@ -34,6 +34,11 @@ module OsxTools
 
     def bootable?
       info_hash["Bootable"]
+    end
+
+    def eject
+      @diskutil.eject(@id)
+      @is_ejected = true
     end
 
     private

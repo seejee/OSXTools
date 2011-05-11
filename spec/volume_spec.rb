@@ -4,12 +4,24 @@ describe Volume do
 
   before(:each) do
     @invoker = mock "diskutil_invoker"
+    @volume = Volume.new('disk0', @invoker)
+  end
+
+  context "when ejecting a volume" do
+
+    it 'should call eject on the diskutil invoker' do
+      @invoker.should_receive(:eject).with('disk0')
+
+      @volume.eject
+      @volume.is_ejected.should == true
+    end
+
   end
 
   context "when inspecting a volume" do
 
-    before(:each) do
-      @volume = Volume.new('disk0', @invoker)
+    it "should expose the volume's id" do
+      @volume.id.should == 'disk0'
     end
 
     it "should expose the volume's id" do
@@ -64,7 +76,7 @@ describe Volume do
       @volume.percent_used.should == 50.00
     end
 
-    it 'should only call the invoker once' do
+    it 'should only call the invoker once for info' do
       @invoker.should_receive(:info).once.and_return({})
 
       @volume.bootable?

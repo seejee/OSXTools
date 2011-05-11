@@ -41,4 +41,14 @@ describe DiskutilInvoker do
     end
 
   end
+
+  context "when executing the eject command" do
+
+    it 'should call: diskutil eject {id}' do
+      @invoker.should_receive(:system).with(['diskutil', 'eject', 'id'])
+
+      @invoker.eject('id')
+    end
+
+  end
 end
