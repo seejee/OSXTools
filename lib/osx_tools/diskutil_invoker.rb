@@ -15,6 +15,10 @@ module OsxTools
       command('eject', id)
     end
 
+    def mount(id)
+      command('mount', id)
+    end
+
     def unmount(id)
       command('unmount', id)
     end

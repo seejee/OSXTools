@@ -61,4 +61,14 @@ describe DiskutilInvoker do
     end
 
   end
+
+  context "when executing the mount command" do
+
+    it 'should call: diskutil mount {id}' do
+      @invoker.should_receive(:system).with(['diskutil', 'mount', 'id'])
+
+      @invoker.mount('id')
+    end
+
+  end
 end

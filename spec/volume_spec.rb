@@ -29,6 +29,17 @@ describe Volume do
 
   end
 
+  context "when mounting a volume" do
+
+    it 'should call mount on the diskutil invoker' do
+      @invoker.should_receive(:mount).with('disk0')
+
+      @volume.mount
+      @volume.is_mounted.should == true
+    end
+
+  end
+
   context "when inspecting a volume" do
 
     it "should expose the volume's id" do

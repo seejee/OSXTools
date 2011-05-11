@@ -42,6 +42,11 @@ module OsxTools
       @is_ejected = true
     end
 
+    def mount
+      @diskutil.mount(@id)
+      @is_mounted = true
+    end
+
     def unmount
       @diskutil.unmount(@id)
       @is_mounted = false
