@@ -10,6 +10,4 @@ module OsxTools
       volume_ids.inject([]) {|volumes, id| volumes << Volume.new(id, @diskutil)}
     end
   end
-
-
 end

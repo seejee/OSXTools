@@ -12,6 +12,26 @@ module OsxTools
       info_hash["DeviceNode"]
     end
 
+    def name
+      info_hash["VolumeName"]
+    end
+
+    def filesystem
+      info_hash["FilesystemUserVisibleName"]
+    end
+
+    def total_size
+      info_hash["TotalSize"]
+    end
+
+    def free_space
+      info_hash["FreeSpace"]
+    end
+
+    def percent_used
+      free_space.fdiv(total_size) * 100.0
+    end
+
     def bootable?
       info_hash["Bootable"]
     end
