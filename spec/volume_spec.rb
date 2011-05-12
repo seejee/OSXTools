@@ -13,7 +13,6 @@ describe Volume do
       @invoker.should_receive(:eject).with('disk0')
 
       @volume.eject
-      @volume.is_ejected.should == true
     end
 
   end
@@ -24,7 +23,6 @@ describe Volume do
       @invoker.should_receive(:unmount).with('disk0')
 
       @volume.unmount
-      @volume.is_mounted.should == false
     end
 
   end
@@ -35,7 +33,6 @@ describe Volume do
       @invoker.should_receive(:mount).with('disk0')
 
       @volume.mount
-      @volume.is_mounted.should == true
     end
 
   end
@@ -47,55 +44,55 @@ describe Volume do
     end
 
     it 'should retrieve node via the diskutil invoker' do
-      @invoker.should_receive(:info).with('disk0').and_return({"DeviceNode" => '/dev/disk0s1'})
+      expect_and_return({"DeviceNode" => '/dev/disk0s1'})
 
       @volume.node.should == '/dev/disk0s1'
     end
 
     it 'should retrieve bootable via the diskutil invoker' do
-      @invoker.should_receive(:info).with('disk0').and_return({"Bootable" => true})
+      expect_and_return({"Bootable" => true})
 
       @volume.bootable?.should == true
     end
 
     it 'should retrieve name via the diskutil invoker' do
-      @invoker.should_receive(:info).with('disk0').and_return({"VolumeName" => 'name'})
+      expect_and_return({"VolumeName" => 'name'})
 
       @volume.name.should == 'name'
     end
 
     it 'should retrieve filesystem via the diskutil invoker' do
-      @invoker.should_receive(:info).with('disk0').and_return({"FilesystemUserVisibleName" => 'filesystem'})
+      expect_and_return({"FilesystemUserVisibleName" => 'filesystem'})
 
       @volume.filesystem.should == 'filesystem'
     end
 
     it 'should retrieve bus_protocol via the diskutil invoker' do
-      @invoker.should_receive(:info).with('disk0').and_return({"BusProtocol" => 'USB'})
+      expect_and_return({"BusProtocol" => 'USB'})
 
       @volume.bus_protocol.should == 'USB'
     end
 
     it 'should retrieve total_size via the diskutil invoker' do
-      @invoker.should_receive(:info).with('disk0').and_return({"TotalSize" => 1_000_000})
+      expect_and_return({"TotalSize" => 1_000_000})
 
       @volume.total_size.should == 1_000_000
     end
 
     it 'should retrieve free_space via the diskutil invoker' do
-      @invoker.should_receive(:info).with('disk0').and_return({"FreeSpace" => 500_000})
+      expect_and_return({"FreeSpace" => 500_000})
 
       @volume.free_space.should == 500_000
     end
 
     it 'should retrieve total_size via the diskutil invoker' do
-      @invoker.should_receive(:info).with('disk0').and_return({"TotalSize" => 1_000_000})
+      expect_and_return({"TotalSize" => 1_000_000})
 
       @volume.total_size.should == 1_000_000
     end
 
     it 'should calculate percent_used' do
-      @invoker.should_receive(:info).with('disk0').and_return({"FreeSpace" => 500_000, "TotalSize" => 1_000_000})
+      expect_and_return({"FreeSpace" => 500_000, "TotalSize" => 1_000_000})
 
       @volume.percent_used.should == 50.00
     end
@@ -105,6 +102,12 @@ describe Volume do
 
       @volume.bootable?
       @volume.node
+    end
+
+    private
+
+    def expect_and_return(hash)
+      @invoker.should_receive(:info).once.and_return(hash)
     end
   end
 end

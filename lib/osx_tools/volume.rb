@@ -1,12 +1,11 @@
 module OsxTools
   class Volume
 
-    attr_reader :id, :is_ejected, :is_mounted
+    attr_reader :id
 
     def initialize(id, invoker)
-      @id = id
-      @diskutil = invoker
-      @is_mounted = true
+      @id         = id
+      @diskutil   = invoker
     end
 
     def node
@@ -41,19 +40,20 @@ module OsxTools
       info_hash["Bootable"]
     end
 
+    def mounted?
+      info_hash["MountPoint"].empty? == false
+    end
+
     def eject
       @diskutil.eject(@id)
-      @is_ejected = true
     end
 
     def mount
       @diskutil.mount(@id)
-      @is_mounted = true
     end
 
     def unmount
       @diskutil.unmount(@id)
-      @is_mounted = false
     end
 
     private
