@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Bootable</key>
+	<true/>
+	<key>BusProtocol</key>
+	<string>SATA</string>
+	<key>CanBeMadeBootable</key>
+	<false/>
+	<key>CanBeMadeBootableRequiresDestroy</key>
+	<false/>
+	<key>Content</key>
+	<string>Apple_HFS</string>
+	<key>DeviceIdentifier</key>
+	<string>disk0s2</string>
+	<key>DeviceNode</key>
+	<string>/dev/disk0s2</string>
+	<key>DeviceTreePath</key>
+	<string>IODeviceTree:/PCI0@0/SATA@1F,2/PMP@0</string>
+	<key>Ejectable</key>
+	<true/>
+	<key>FilesystemName</key>
+	<string>Journaled HFS+</string>
+	<key>FilesystemType</key>
+	<string>hfs</string>
+	<key>FilesystemUserVisibleName</key>
+	<string>Mac OS Extended (Journaled)</string>
+	<key>FreeSpace</key>
+	<integer>473183952896</integer>
+	<key>GlobalPermissionsEnabled</key>
+	<true/>
+	<key>IOKitSize</key>
+	<integer>499763888128</integer>
+	<key>Internal</key>
+	<false/>
+	<key>JournalOffset</key>
+	<integer>15261696</integer>
+	<key>JournalSize</key>
+	<integer>41943040</integer>
+	<key>MediaName</key>
+	<string>Hackintosh</string>
+	<key>MediaType</key>
+	<string>Generic</string>
+	<key>MountPoint</key>
+	<string>/</string>
+	<key>ParentWholeDisk</key>
+	<string>disk0</string>
+	<key>RAIDMaster</key>
+	<false/>
+	<key>RAIDSlice</key>
+	<false/>
+	<key>SMARTStatus</key>
+	<string>Verified</string>
+	<key>SupportsGlobalPermissionsDisable</key>
+	<true/>
+	<key>SystemImage</key>
+	<false/>
+	<key>TotalSize</key>
+	<integer>499763888128</integer>
+	<key>VolumeName</key>
+	<string>Hackintosh</string>
+	<key>VolumeUUID</key>
+	<string>CAE58EDA-F087-3F27-A6AE-7541C682C11E</string>
+	<key>WholeDisk</key>
+	<false/>
+	<key>Writable</key>
+	<true/>
+	<key>WritableMedia</key>
+	<true/>
+	<key>WritableVolume</key>
+	<true/>
+</dict>
+</plist>

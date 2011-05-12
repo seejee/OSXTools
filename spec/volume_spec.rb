@@ -39,62 +39,47 @@ describe Volume do
 
   context "when inspecting a volume" do
 
+    before(:each) do
+      inject_plist('info.plist')
+
+      @invoker = DiskutilInvoker.new
+      @volume = Volume.new('disk0s2', @invoker)
+    end
+
     it "should expose the volume's id" do
-      @volume.id.should == 'disk0'
+      @volume.id.should == 'disk0s2'
     end
 
     it 'should retrieve node via the diskutil invoker' do
-      expect_and_return({"DeviceNode" => '/dev/disk0s1'})
-
-      @volume.node.should == '/dev/disk0s1'
+      @volume.node.should == '/dev/disk0s2'
     end
 
     it 'should retrieve bootable via the diskutil invoker' do
-      expect_and_return({"Bootable" => true})
-
       @volume.bootable?.should == true
     end
 
     it 'should retrieve name via the diskutil invoker' do
-      expect_and_return({"VolumeName" => 'name'})
-
-      @volume.name.should == 'name'
+      @volume.name.should == 'Hackintosh'
     end
 
     it 'should retrieve filesystem via the diskutil invoker' do
-      expect_and_return({"FilesystemUserVisibleName" => 'filesystem'})
-
-      @volume.filesystem.should == 'filesystem'
+      @volume.filesystem.should == 'Mac OS Extended (Journaled)'
     end
 
     it 'should retrieve bus_protocol via the diskutil invoker' do
-      expect_and_return({"BusProtocol" => 'USB'})
-
-      @volume.bus_protocol.should == 'USB'
+      @volume.bus_protocol.should == 'SATA'
     end
 
     it 'should retrieve total_size via the diskutil invoker' do
-      expect_and_return({"TotalSize" => 1_000_000})
-
-      @volume.total_size.should == 1_000_000
+      @volume.total_size.should == 499_763_888_128
     end
 
     it 'should retrieve free_space via the diskutil invoker' do
-      expect_and_return({"FreeSpace" => 500_000})
-
-      @volume.free_space.should == 500_000
-    end
-
-    it 'should retrieve total_size via the diskutil invoker' do
-      expect_and_return({"TotalSize" => 1_000_000})
-
-      @volume.total_size.should == 1_000_000
+      @volume.free_space.should == 473_183_952_896
     end
 
     it 'should calculate percent_used' do
-      expect_and_return({"FreeSpace" => 500_000, "TotalSize" => 1_000_000})
-
-      @volume.percent_used.should == 50.00
+      @volume.percent_used.should == 94.6815014322939
     end
 
     it 'should only call the invoker once for info' do
@@ -102,12 +87,6 @@ describe Volume do
 
       @volume.bootable?
       @volume.node
-    end
-
-    private
-
-    def expect_and_return(hash)
-      @invoker.should_receive(:info).once.and_return(hash)
     end
   end
 end
