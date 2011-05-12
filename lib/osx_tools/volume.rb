@@ -16,7 +16,6 @@ module OSXTools
     expose_info :total_size   ,"TotalSize"
     expose_info :free_space   ,"FreeSpace"
     expose_info :bootable?    ,"Bootable"
-    expose_info :filesystem   ,"FilesystemUserVisibleName"
     expose_info :mount_point  ,"MountPoint"
 
     def initialize(id, invoker)
