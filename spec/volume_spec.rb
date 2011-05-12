@@ -50,31 +50,31 @@ describe Volume do
       @volume.id.should == 'disk0s2'
     end
 
-    it 'should retrieve node via the diskutil invoker' do
+    it 'should expose node' do
       @volume.node.should == '/dev/disk0s2'
     end
 
-    it 'should retrieve bootable via the diskutil invoker' do
+    it 'should expose bootable' do
       @volume.bootable?.should == true
     end
 
-    it 'should retrieve name via the diskutil invoker' do
+    it 'should expose name' do
       @volume.name.should == 'Hackintosh'
     end
 
-    it 'should retrieve filesystem via the diskutil invoker' do
+    it 'should expose filesystem' do
       @volume.filesystem.should == 'Mac OS Extended (Journaled)'
     end
 
-    it 'should retrieve bus_protocol via the diskutil invoker' do
+    it 'should expose bus_protocol' do
       @volume.bus_protocol.should == 'SATA'
     end
 
-    it 'should retrieve total_size via the diskutil invoker' do
+    it 'should expose total_size' do
       @volume.total_size.should == 499_763_888_128
     end
 
-    it 'should retrieve free_space via the diskutil invoker' do
+    it 'should expose free_space' do
       @volume.free_space.should == 473_183_952_896
     end
 
