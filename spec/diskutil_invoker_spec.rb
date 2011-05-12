@@ -2,13 +2,22 @@ require 'spec_helper'
 require 'Plist'
 
 describe DiskutilInvoker do
-  before(:each) do
-    @mock_io = mock "io"
-    @mock_io.stub!(:close)
-    @mock_io.stub!(:readlines).and_return(['a', 'b'])
 
-    IO.stub!(:popen).and_return(@mock_io)
-    Plist.stub!(:parse_xml).and_return({"key" => "val"})
+  before(:each) do
+
+    example_plist = %Q{
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>key</key>
+        <string>val</string>
+      </dict>
+    </plist>
+    }
+
+    @io = StringIO.new(example_plist)
+    IO.stub!(:popen).and_return(@io)
 
     @invoker = DiskutilInvoker.new
   end
@@ -17,12 +26,6 @@ describe DiskutilInvoker do
 
     it 'should call: diskutil list -plist' do
       IO.should_receive(:popen).with(['diskutil', 'list', '-plist'])
-
-      @invoker.list
-    end
-
-    it 'should join the plist lines output by diskutil' do
-      Plist.should_receive(:parse_xml).with('a b')
 
       @invoker.list
     end
