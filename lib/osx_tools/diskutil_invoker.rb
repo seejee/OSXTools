@@ -1,6 +1,6 @@
 require 'Plist'
 
-module OsxTools
+module OSXTools
   class DiskutilInvoker
 
     def list

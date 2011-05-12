@@ -4,7 +4,7 @@ require "osx_tools/version"
 
 Gem::Specification.new do |s|
   s.name        = "osx_tools"
-  s.version     = OsxTools::VERSION
+  s.version     = OSXTools::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Chris Geihsler"]
   s.email       = ["chris@geihsler.net"]

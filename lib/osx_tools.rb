@@ -2,7 +2,7 @@ require_relative 'osx_tools/version'
 require_relative 'osx_tools/diskutil_invoker'
 require_relative 'osx_tools/volume'
 
-module OsxTools
+module OSXTools
   extend self
 
   def volumes(invoker = DiskutilInvoker.new)

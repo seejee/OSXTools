@@ -1,47 +1,35 @@
-module OsxTools
+module OSXTools
   class Volume
 
+    def self.expose_info(method_name, key)
+      define_method(method_name) do
+         info_hash[key]
+      end
+    end
+
     attr_reader :id
+
+    expose_info :node         ,"DeviceNode"
+    expose_info :name         ,"VolumeName"
+    expose_info :filesystem   ,"FilesystemUserVisibleName"
+    expose_info :bus_protocol ,"BusProtocol"
+    expose_info :total_size   ,"TotalSize"
+    expose_info :free_space   ,"FreeSpace"
+    expose_info :bootable?    ,"Bootable"
+    expose_info :filesystem   ,"FilesystemUserVisibleName"
+    expose_info :mount_point  ,"MountPoint"
 
     def initialize(id, invoker)
       @id         = id
       @diskutil   = invoker
     end
 
-    def node
-      info_hash["DeviceNode"]
-    end
-
-    def name
-      info_hash["VolumeName"]
-    end
-
-    def filesystem
-      info_hash["FilesystemUserVisibleName"]
-    end
-
-    def bus_protocol
-      info_hash["BusProtocol"]
-    end
-
-    def total_size
-      info_hash["TotalSize"]
-    end
-
-    def free_space
-      info_hash["FreeSpace"]
-    end
-
     def percent_used
       free_space.fdiv(total_size) * 100.0
     end
 
-    def bootable?
-      info_hash["Bootable"]
-    end
-
     def mounted?
-      info_hash["MountPoint"].empty? == false
+      mount_point.empty? == false
     end
 
     def eject
@@ -61,5 +49,6 @@ module OsxTools
     def info_hash
       @info_hash ||= @diskutil.info(@id)
     end
+
   end
 end
