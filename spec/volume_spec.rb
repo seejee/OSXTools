@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Volume do
 
   before(:each) do
-    @invoker = mock "diskutil_invoker"
-    @volume = Volume.new('disk0', @invoker)
+    @invoker  = mock "invoker"
+    @volume   = Volume.new('disk0', @invoker)
   end
 
   context "when ejecting a volume" do

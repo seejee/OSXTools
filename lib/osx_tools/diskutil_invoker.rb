@@ -48,7 +48,7 @@ module OSXTools
     end
 
     def command(command, id)
-      system(['diskutil', command, id])
+      system('diskutil', command, id)
     end
 
   end
