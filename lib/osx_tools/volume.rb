@@ -33,14 +33,17 @@ module OSXTools
 
     def eject
       @diskutil.eject(@id)
+      invalidate
     end
 
     def mount
       @diskutil.mount(@id)
+      invalidate
     end
 
     def unmount
       @diskutil.unmount(@id)
+      invalidate
     end
 
     private
@@ -48,6 +51,11 @@ module OSXTools
     def info_hash
       @info_hash ||= @diskutil.info(@id)
     end
+
+    def invalidate
+      @info_hash = nil
+    end
+
 
   end
 end

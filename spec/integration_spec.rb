@@ -63,10 +63,14 @@ describe OSXTools do
   end
 
   def test_image_attached?
-    !test_image_volume.nil?
+    !find_test_image_volume.nil?
   end
 
   def test_image_volume
+    @test_image_volume ||= find_test_image_volume
+  end
+
+  def find_test_image_volume
     OSXTools.attached_volumes.find {|v| v.name == "TESTIMAGE" }
   end
 
