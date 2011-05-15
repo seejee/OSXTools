@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe OSXTools do
+describe OSXTools, type: 'integration' do
 
   before(:each) do
     ensure_test_image_is_unmounted

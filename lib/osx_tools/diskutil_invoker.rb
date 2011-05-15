@@ -47,7 +47,7 @@ module OSXTools
     end
 
     def command(command, id)
-      `diskutil #{command} #{id}`
+      output = `diskutil #{command} #{id}`
     end
 
   end
