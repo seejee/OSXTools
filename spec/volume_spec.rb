@@ -40,9 +40,7 @@ describe Volume do
   context "when inspecting a volume" do
 
     before(:each) do
-      inject_plist('info.plist')
-
-      @invoker = DiskutilInvoker.new
+      @invoker = get_invoker_with_injected_plist('info.plist')
       @volume = Volume.new('disk0s2', @invoker)
     end
 

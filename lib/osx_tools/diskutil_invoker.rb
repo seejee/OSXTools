@@ -32,9 +32,8 @@ module OSXTools
     end
 
     def get_plist(args)
-      output = IO.popen(args)
-      plist_xml = output.readlines.join(' ')
-      output.close
+      command_line = args.join(' ')
+      plist_xml = `#{command_line}`
       plist_xml
     end
 
@@ -48,7 +47,7 @@ module OSXTools
     end
 
     def command(command, id)
-      system('diskutil', command, id)
+      `diskutil #{command} #{id}`
     end
 
   end

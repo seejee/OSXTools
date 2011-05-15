@@ -13,7 +13,7 @@ describe DiskutilInvoker do
    context "when executing the eject command" do
 
     it 'should call: diskutil eject {id}' do
-      @invoker.should_receive(:system).with('diskutil', 'eject', 'id')
+      @invoker.should_receive(:command).with('eject', 'id')
 
       @invoker.eject('id')
     end
@@ -23,7 +23,7 @@ describe DiskutilInvoker do
   context "when executing the unmount command" do
 
     it 'should call: diskutil unmount {id}' do
-      @invoker.should_receive(:system).with('diskutil', 'unmount', 'id')
+      @invoker.should_receive(:command).with('unmount', 'id')
 
       @invoker.unmount('id')
     end
@@ -33,7 +33,7 @@ describe DiskutilInvoker do
   context "when executing the mount command" do
 
     it 'should call: diskutil mount {id}' do
-      @invoker.should_receive(:system).with('diskutil', 'mount', 'id')
+      @invoker.should_receive(:command).with('mount', 'id')
 
       @invoker.mount('id')
     end

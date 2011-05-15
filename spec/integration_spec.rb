@@ -21,11 +21,9 @@ describe OSXTools do
 
   context "when unmounting a volume" do
 
-    before(:each) do
-      test_image_volume.unmount
-    end
-
     it 'should report as unmounted' do
+      test_image_volume.unmount
+
       test_image_volume.mounted?.should == false
     end
 
@@ -33,12 +31,10 @@ describe OSXTools do
 
   context "when mounting a volume" do
 
-    before(:each) do
+    it 'should report as mounted' do
       test_image_volume.unmount
       test_image_volume.mount
-    end
 
-    it 'should report as mounted' do
       test_image_volume.mounted?.should == true
     end
 
@@ -46,11 +42,9 @@ describe OSXTools do
 
   context "when ejecting a volume" do
 
-    before(:each) do
+     it 'should no longer appear in the list of attached volumes' do
       test_image_volume.eject
-    end
 
-    it 'should no longer appear in the list of attached volumes' do
       test_image_attached?.should == false
     end
 
